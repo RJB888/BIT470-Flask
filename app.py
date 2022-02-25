@@ -5,6 +5,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from resources.user import User, Users
+from resources.auth import Signup, Login
 import sqlite3
 from os.path import exists
 from src.migrate_db import init_db
@@ -22,8 +23,10 @@ class HelloWorld(Resource):
         return {'hello': 'world'}
 
 api.add_resource(HelloWorld, '/')
-api.add_resource(User, '/users/<string:user_name>', '/users/create')
+api.add_resource(User, '/users/<string:user_name>')
 api.add_resource(Users, '/users')
+api.add_resource(Signup, '/auth/signup')
+api.add_resource(Login, '/auth/login')
 
 @app.teardown_appcontext
 def close_connection(exception):
