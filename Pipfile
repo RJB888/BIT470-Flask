@@ -17,6 +17,8 @@ MarkupSafe = "==2.0.1"
 PyJWT = "==1.4.2"
 Werkzeug = "==2.0.2"
 flask-bcrypt = "*"
+requests = "*"
+jwt = "*"
 
 [dev-packages]
 

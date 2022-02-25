@@ -1,2 +1,3 @@
 DB_NAME='example.db'
 ENV='dev'
+SECRET_KEY='868e101039f43430cb25923c99f9dbd0'
