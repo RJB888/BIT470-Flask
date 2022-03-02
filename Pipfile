@@ -19,6 +19,9 @@ Werkzeug = "==2.0.2"
 flask-bcrypt = "*"
 requests = "*"
 jwt = "*"
+colorama = "*"
+sqlalchemy = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
