@@ -16,3 +16,9 @@ To run the code you need to activate the virtual environment. Do the following:
 * `source bin/activate`
 
 To deactivate the environment simply type `deactivate` in the terminal
+
+## Running the db
+* start virtual environment
+* type python to open python shell
+* type from models import db
+* type db.create_all()
