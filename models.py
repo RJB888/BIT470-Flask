@@ -15,6 +15,7 @@ class User(db.Model):
     username = db.Column(db.String(40), nullable = False)
     password = db.Column(db.String(60), nullable = False)
     email = db.Column(db.String(120), unique = True, nullable = False)
+    tweets = db.relationship('Tweets', backref ='author', lazy = True)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
