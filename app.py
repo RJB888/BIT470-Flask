@@ -12,6 +12,7 @@ from src.migrate_db import init_db
 import src.const
 from flask import g
 
+
 app = Flask(__name__)
 api = Api(app)
 
