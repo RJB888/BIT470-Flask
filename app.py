@@ -6,6 +6,8 @@ from flask import Flask
 from flask_restful import Resource, Api
 from resources.user import User, Users
 from resources.auth import Signup, Login
+from resources.posts import PostTweet
+from resources.models import db
 import sqlite3
 from os.path import exists
 from src.migrate_db import init_db
@@ -28,6 +30,8 @@ api.add_resource(User, '/users/<string:user_name>')
 api.add_resource(Users, '/users')
 api.add_resource(Signup, '/auth/signup')
 api.add_resource(Login, '/auth/login')
+api.add_resource(PostTweet, '/tweet')
+
 
 @app.teardown_appcontext
 def close_connection(exception):

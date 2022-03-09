@@ -4,7 +4,7 @@ from flask import Flask, render_template, url_for, flash, redirect
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///base.db'
 
 db = SQLAlchemy(app)
 
@@ -15,7 +15,6 @@ class User(db.Model):
     username = db.Column(db.String(40), nullable = False)
     password = db.Column(db.String(60), nullable = False)
     email = db.Column(db.String(120), unique = True, nullable = False)
-    tweets = db.relationship('Tweets', backref ='author', lazy = True)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
@@ -25,6 +24,7 @@ class Profile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userid = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
     bio = db.Column(db.Text, nullable = False)
+    ##tweets = db.relationship('Tweets', backref='author', lazy=True)
 
     def __repr__(self):
         return f"Profile('{self.bio}')"
@@ -34,7 +34,8 @@ class Tweets(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userid = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
     tweet_text = db.Column(db.Text, nullable = False)
-    date_posted = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
+    date_posted = db.Column(db.DateTime, nullable = False, default = datetime.utcnow())
+    
 
     def __repr__(self):
         return f"Tweets('{self.userid}', '{self.tweet_text}', '{self.date_posted}')"

@@ -20,8 +20,9 @@ flask-bcrypt = "*"
 requests = "*"
 jwt = "*"
 colorama = "*"
-sqlalchemy = "*"
 flask-sqlalchemy = "*"
+flask-marshmallow = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 
