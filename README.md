@@ -20,5 +20,5 @@ To deactivate the environment simply type `deactivate` in the terminal
 ## Running the db
 * start virtual environment
 * type python to open python shell
-* type from models import db
+* type from resources.models import db
 * type db.create_all()
